@@ -70,7 +70,9 @@ app.patch("/joke/:id", (req, res)=>{
 app.delete("/jokes/:id", (req, res) => {
   const id = parseInt(req.params.id);
   const searchIndex = jokes.findIndex((joke) => joke.id === id);
+  //if the index exist the splice the item from the list
   if (searchIndex > -1) {
+    //number of items to remove starting from the index
     jokes.splice(searchIndex, 1);
     res.sendStatus(200);
   } else {
